@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="{% url 'agein' %}" method="GET">
+        <label>
+            <p>Birth year:</p>
+            <input type="text" name="birthyear">
+        </label>
+
+        <label>
+            <p>End year:</p>
+            <input type="text" name="endyear">
+        </label>
+        <button>Submit</button>
+    </form>
+
+    {% if birthyear is not None and endyear is not None %}
+        <p>In {{endyear}}, you will be {{agein}} years old!</p>
+    {% endif %}
+    
+</body>
+</html>
