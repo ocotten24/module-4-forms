@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from app.forms import ageInForm, orderForm
+from app.forms import heyForm, ageInForm, orderForm
 
 
 def hey(request):
-    if request.GET:
-        name = (str(request.GET['name'])).upper()
+    form = heyForm(request.GET)
+    if form.is_valid():
+        name = (form.cleaned_data['name']).upper()
         return render(request, "hey.html", {'name': name})
     else:
         return render(request, "hey.html")
